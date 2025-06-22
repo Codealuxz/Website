@@ -122,62 +122,46 @@ export default function ClientScripts() {
         }
 
         // Gestion du menu burger
-        function initBurgerMenu() {
-            console.log('Initialisation du menu burger...')
+        document.addEventListener('DOMContentLoaded', function () {
+            const burger = document.querySelector<HTMLElement>('.burger-menu')
+            const nav = document.querySelector<HTMLElement>('.header-menu')
+            const cta = document.querySelector<HTMLElement>('.cta')
+            const headerContainer = document.querySelector<HTMLElement>('.header-container')
 
-            const burger = document.querySelector('.burger-menu')
-            const nav = document.querySelector('.header-menu')
-            const cta = document.querySelector('.cta')
-            const headerContainer = document.querySelector('.header-container')
-
-            if (!burger || !nav || !cta || !headerContainer) {
-                console.log('Éléments manquants, retry...')
-                setTimeout(initBurgerMenu, 100)
-                return
-            }
-
-            console.log('Tous les éléments trouvés!')
-
-            // Fonction simple pour toggle le menu
             function handleBurgerClick() {
-                console.log('Burger cliqué!')
-                burger.classList.toggle('open')
-                nav.classList.toggle('open')
+                if (burger && nav && cta && headerContainer) {
+                    burger.classList.toggle('open')
+                    nav.classList.toggle('open')
 
-                if (nav.classList.contains('open')) {
-                    document.body.style.overflow = 'hidden'
-                    nav.appendChild(cta)
-                    cta.style.display = 'block'
-                } else {
-                    document.body.style.overflow = ''
-                    headerContainer.appendChild(cta)
-                    cta.style.display = ''
+                    if (nav.classList.contains('open')) {
+                        document.body.style.overflow = 'hidden'
+                        nav.appendChild(cta)
+                        cta.style.display = 'block'
+                    } else {
+                        document.body.style.overflow = ''
+                        headerContainer.appendChild(cta)
+                        cta.style.display = ''
+                    }
                 }
             }
 
-            // Supprimer tous les event listeners existants
-            burger.onclick = null
-            burger.ontouchstart = null
-
-            // Ajouter les nouveaux event listeners
-            burger.onclick = handleBurgerClick
-            burger.ontouchstart = handleBurgerClick
-
-            // Fermer le menu quand on clique sur un lien
-            const links = nav.querySelectorAll('a')
-            links.forEach(link => {
-                link.onclick = function () {
-                    console.log('Lien cliqué, fermeture menu')
-                    burger.classList.remove('open')
-                    nav.classList.remove('open')
-                    document.body.style.overflow = ''
-                    headerContainer.appendChild(cta)
-                    cta.style.display = ''
+            if (burger) {
+                burger.addEventListener('click', handleBurgerClick)
+                // Fermer le menu quand on clique sur un lien
+                if (nav && cta && headerContainer) {
+                    const links = nav.querySelectorAll('a')
+                    links.forEach(link => {
+                        link.addEventListener('click', function () {
+                            burger.classList.remove('open')
+                            nav.classList.remove('open')
+                            document.body.style.overflow = ''
+                            headerContainer.appendChild(cta)
+                            cta.style.display = ''
+                        })
+                    })
                 }
-            })
-
-            console.log('Menu burger prêt!')
-        }
+            }
+        })
 
         // Gestion du mouvement de la souris
         function handleMouseMove(e: MouseEvent) {
@@ -198,7 +182,7 @@ export default function ClientScripts() {
 
             // Fonction pour attendre que toutes les images soient chargées
             function waitForImagesToLoad() {
-                return new Promise((resolve) => {
+                return new Promise<void>((resolve) => {
                     const images = document.querySelectorAll('img')
                     const totalImages = images.length
                     let loadedImages = 0
@@ -269,12 +253,6 @@ export default function ClientScripts() {
         initTheme()
         resetScroll()
         initPageTransitions()
-
-        // Initialiser le menu burger immédiatement et avec retries
-        initBurgerMenu()
-
-        // Retry après 1 seconde au cas où
-        setTimeout(initBurgerMenu, 1000)
 
         // Event listeners
         const themeToggle = document.getElementById('theme-toggle')
