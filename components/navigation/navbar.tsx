@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import { ArrowRightIcon } from "lucide-react"
 import { NAVBAR_LINKS } from "@/config";
 import { useEffect, useState } from "react";
-import Logo from "@/public/branding/logo.webp";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
@@ -48,7 +47,7 @@ export default function Navbar() {
             >
                 <div className="flex items-center gap-4">
                     <Link href="/">
-                        <Image src={Logo} alt="Logo" width={200} height={50} />
+                        <Image src="/images/ui/logo.webp" alt="Logo" width={200} height={50} />
                     </Link>
                 </div>
                 <div className="hidden md:flex flex-grow justify-center gap-4 items-center">
