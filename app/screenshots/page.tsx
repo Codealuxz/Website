@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 interface Screenshot {
     id: number
@@ -11,6 +12,8 @@ interface Screenshot {
     width: number
     height: number
 }
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export default function ScreenshotsPage() {
     const [screenshots, setScreenshots] = useState<Screenshot[]>([])
@@ -46,16 +49,16 @@ export default function ScreenshotsPage() {
             <header>
                 <div className="header-container">
                     <div className="header-logo">
-                        <Link href="/">
-                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
+                        <Link href={`${basePath}/`}>
+                            <img src={`${basePath}/images/ui/logo.webp`} alt="OpenMC Logo" />
                         </Link>
                     </div>
                     <div className="header-menu">
-                        <Link href="/">Accueil</Link>
-                        <Link href="/screenshots" className="active">Galerie</Link>
+                        <Link href={`${basePath}/`}>Accueil</Link>
+                        <Link href={`${basePath}/screenshots`} className="active">Galerie</Link>
                         <a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a>
                         <a href="https://discord.com/invite/H7DrUjHw7q" target="_blank" rel="noopener noreferrer">Discord</a>
-                        <Link href="/changelog">Changelog</Link>
+                        <Link href={`${basePath}/changelog`}>Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                     <button className="burger-menu" aria-label="Ouvrir le menu">
@@ -64,7 +67,7 @@ export default function ScreenshotsPage() {
                         <span></span>
                     </button>
                     <div className="cta">
-                        <button className="cta-button" onClick={() => window.location.href = '/join'}>
+                        <button className="cta-button" onClick={() => window.location.href = `${basePath}/join`}>
                             Rejoindre le serveur
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14"></path>
@@ -119,7 +122,7 @@ export default function ScreenshotsPage() {
                 <div className="footer-container">
                     <div className="footer-section">
                         <div className="footer-logo">
-                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src={`${basePath}/images/ui/logo.webp`} alt="OpenMC Logo" />
                         </div>
                         <p className="footer-description">
                             Serveur Minecraft open-source innovant et collaboratif pour la communauté.
@@ -128,9 +131,9 @@ export default function ScreenshotsPage() {
                     <div className="footer-section">
                         <h4>Liens rapides</h4>
                         <ul className="footer-links">
-                            <li><Link href="/">Accueil</Link></li>
-                            <li><Link href="/join">Rejoindre</Link></li>
-                            <li><Link href="/screenshots">Galerie</Link></li>
+                            <li><Link href={`${basePath}/`}>Accueil</Link></li>
+                            <li><Link href={`${basePath}/join`}>Rejoindre</Link></li>
+                            <li><Link href={`${basePath}/screenshots`}>Galerie</Link></li>
                             <li><a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a></li>
                         </ul>
                     </div>
