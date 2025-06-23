@@ -132,7 +132,7 @@ export default function HomePage() {
                 <div className="header-container">
                     <div className="header-logo">
                         <Link href="/">
-                            <img src="images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
                         </Link>
                     </div>
                     <div className="header-menu">
@@ -191,7 +191,7 @@ export default function HomePage() {
                     </div>
                     <div className="main-image">
                         <div className="image-wrapper">
-                            <Image src="images/ui/spawn.png" alt="Spawn du serveur OpenMC" width={1200} height={800} />
+                            <Image src="/images/ui/spawn.png" alt="Spawn du serveur OpenMC" width={1200} height={800} />
                             <div className="main-image-overlay">
                                 <div className="stats">
                                     <div className="stat-item">
@@ -287,7 +287,7 @@ export default function HomePage() {
                 <div className="footer-container">
                     <div className="footer-section">
                         <div className="footer-logo">
-                            <img src="images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
                         </div>
                         <p className="footer-description">
                             Serveur Minecraft open-source innovant et collaboratif pour la communauté.
