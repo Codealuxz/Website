@@ -47,7 +47,7 @@ export default function Navbar() {
             >
                 <div className="flex items-center gap-4">
                     <Link href="/">
-                        <Image src="/images/ui/logo.webp" alt="Logo" width={200} height={50} />
+                        <Image src="images/ui/logo.webp" alt="Logo" width={200} height={50} />
                     </Link>
                 </div>
                 <div className="hidden md:flex flex-grow justify-center gap-4 items-center">

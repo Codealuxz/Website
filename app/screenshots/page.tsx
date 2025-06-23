@@ -47,7 +47,7 @@ export default function ScreenshotsPage() {
                 <div className="header-container">
                     <div className="header-logo">
                         <Link href="/">
-                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </Link>
                     </div>
                     <div className="header-menu">
@@ -84,10 +84,10 @@ export default function ScreenshotsPage() {
                             <div
                                 key={screenshot.id}
                                 className="screenshot-card"
-                                onClick={() => openLightbox(`/images/screenshots/${screenshot.filename}`)}
+                                onClick={() => openLightbox(`images/screenshots/${screenshot.filename}`)}
                             >
                                 <Image
-                                    src={`/images/screenshots/${screenshot.filename}`}
+                                    src={`images/screenshots/${screenshot.filename}`}
                                     alt={screenshot.alt}
                                     width={screenshot.width}
                                     height={screenshot.height}
@@ -119,7 +119,7 @@ export default function ScreenshotsPage() {
                 <div className="footer-container">
                     <div className="footer-section">
                         <div className="footer-logo">
-                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </div>
                         <p className="footer-description">
                             Serveur Minecraft open-source innovant et collaboratif pour la communauté.
