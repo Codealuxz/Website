@@ -151,20 +151,12 @@ export default function ClientScripts() {
             }
 
             if (burger) {
-                burger.addEventListener('click', handleBurgerClick)
-                burger.addEventListener('touchstart', handleBurgerClick)
-                // Fermer le menu quand on clique sur un lien
+                burger.addEventListener('pointerdown', handleBurgerClick)
+                // Fermer le menu quand on clique/touche un lien
                 if (nav && cta && headerContainer) {
                     const links = nav.querySelectorAll('a')
                     links.forEach(link => {
-                        link.addEventListener('click', function () {
-                            burger.classList.remove('open')
-                            nav.classList.remove('open')
-                            document.body.style.overflow = ''
-                            headerContainer.appendChild(cta)
-                            cta.style.display = ''
-                        })
-                        link.addEventListener('touchstart', function (e: Event) {
+                        link.addEventListener('pointerdown', function (e: Event) {
                             e.preventDefault();
                             e.stopPropagation();
                             burger.classList.remove('open')
