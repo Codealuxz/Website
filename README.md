@@ -54,4 +54,7 @@ OpenMC est un projet communautaire open-source dédié à la création d'un serv
 
 ## 📃 Licence
 
-Ce projet est sous licence [GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/). 
+Ce projet est sous licence [GPL-3.0 License](https://choosealicense.com/licenses/gpl-3.0/).
+
+---
+Rectification mineure : commit de test pour mise à jour. 
