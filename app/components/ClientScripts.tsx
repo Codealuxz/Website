@@ -128,7 +128,12 @@ export default function ClientScripts() {
             const cta = document.querySelector<HTMLElement>('.cta')
             const headerContainer = document.querySelector<HTMLElement>('.header-container')
 
-            function handleBurgerClick() {
+            function handleBurgerClick(e: Event) {
+                // Pour éviter le double déclenchement sur mobile
+                if (e.type === 'touchstart') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
                 if (burger && nav && cta && headerContainer) {
                     burger.classList.toggle('open')
                     nav.classList.toggle('open')
@@ -159,7 +164,9 @@ export default function ClientScripts() {
                             headerContainer.appendChild(cta)
                             cta.style.display = ''
                         })
-                        link.addEventListener('touchstart', function () {
+                        link.addEventListener('touchstart', function (e: Event) {
+                            e.preventDefault();
+                            e.stopPropagation();
                             burger.classList.remove('open')
                             nav.classList.remove('open')
                             document.body.style.overflow = ''
