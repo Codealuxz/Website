@@ -108,7 +108,7 @@ export default function JoinPage() {
                 <div className="header-container">
                     <div className="header-logo">
                         <Link href="/">
-                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </Link>
                     </div>
                     <div className="header-menu">
@@ -125,7 +125,7 @@ export default function JoinPage() {
                         <span></span>
                     </button>
                     <div className="cta">
-                        <button className="cta-button" onClick={() => window.location.href = '/join'}>
+                        <button className="cta-button" onClick={() => window.location.href = 'join'}>
                             Rejoindre le serveur
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14"></path>
@@ -274,7 +274,7 @@ export default function JoinPage() {
                 <div className="footer-container">
                     <div className="footer-section">
                         <div className="footer-logo">
-                            <img src="/images/ui/logo.webp" alt="OpenMC Logo" />
+                            <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </div>
                         <p className="footer-description">
                             Serveur Minecraft open-source innovant et collaboratif pour la communauté.
@@ -285,7 +285,7 @@ export default function JoinPage() {
                         <h4>Liens rapides</h4>
                         <ul className="footer-links">
                             <li><Link href="/">Accueil</Link></li>
-                            <li><Link href="/join">Rejoindre le serveur</Link></li>
+                            <li><Link href="join">Rejoindre le serveur</Link></li>
                             <li><a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a></li>
                         </ul>
                     </div>

@@ -297,7 +297,7 @@ export default function ChangelogPage() {
                         <h4>Liens rapides</h4>
                         <ul className="footer-links">
                             <li><Link href="/">Accueil</Link></li>
-                            <li><Link href="/join">Rejoindre le serveur</Link></li>
+                            <li><Link href="join">Rejoindre le serveur</Link></li>
                             <li><Link href="/screenshots">Galerie</Link></li>
                             <li><Link href="/changelog">Changelog</Link></li>
                             <li><a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a></li>
