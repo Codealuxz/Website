@@ -67,13 +67,13 @@ export default function RootLayout({
             </head>
             <body className={inter.className}>
                 <div className="theme-transition-overlay">
-                    <img src="/images/ui/logo.webp" alt="OpenMC Logo" className="theme-transition-logo" />
+                    <img src="images/ui/logo.webp" alt="OpenMC Logo" className="theme-transition-logo" />
                 </div>
                 <div className="page-transition">
-                    <img src="/images/ui/logo.webp" alt="OpenMC Logo" className="page-transition-logo" />
+                    <img src="images/ui/logo.webp" alt="OpenMC Logo" className="page-transition-logo" />
                 </div>
                 <div className="page-change-transition">
-                    <img src="/images/ui/logo.webp" alt="OpenMC Logo" className="page-change-transition-logo" />
+                    <img src="images/ui/logo.webp" alt="OpenMC Logo" className="page-change-transition-logo" />
                     <p className="page-transition-text">Chargement...</p>
                 </div>
                 <div className="overlay"></div>
