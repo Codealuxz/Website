@@ -257,10 +257,6 @@ export default function HomePage() {
                             }}
                         >
                             <div className="tooltip-stats">
-                                <div className="stat">
-                                    <span className="stat-label">Contributions:</span>
-                                    <span className="stat-value commits">{tooltipData.data.contributions.toLocaleString()}</span>
-                                </div>
                                 {tooltipData.data.additions !== undefined && (
                                     <>
                                         <div className="stat">
