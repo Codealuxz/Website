@@ -109,7 +109,7 @@ export default function ChangelogPage() {
                         <span></span>
                     </button>
                     <div className="cta">
-                        <button className="cta-button" onClick={() => window.location.href = '/join'}>
+                        <button className="cta-button" onClick={() => window.location.href = 'join'}>
                             Rejoindre le serveur
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14"></path>
