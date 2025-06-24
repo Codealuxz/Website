@@ -24,7 +24,7 @@ export default function RootLayout({
                 <meta name="theme-color" content="#18181b" />
                 <link rel="canonical" href="https://openmc.fr/" />
                 <meta property="og:title" content="OpenMC - Serveur Minecraft open-source innovant et collaboratif" />
-                <meta property="og:description" content="OpenMC est un projet communautaire open-source dédié à la création d'un serveur Minecraft innovant et collaboratif." />
+                <meta property="og:description" content="Serveur Minecraft open-source innovant et collaboratif pour la communauté. Et en constante évolution." />
                 <meta property="og:image" content="https://openmc.fr/images/ui/logo.png" />
                 <meta property="og:url" content="https://openmc.fr/" />
                 <meta property="og:type" content="website" />
