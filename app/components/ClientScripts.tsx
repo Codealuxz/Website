@@ -133,84 +133,9 @@ export default function ClientScripts() {
             document.documentElement.style.setProperty('--mouse-y', (mouseY - 150) + 'px')
         }
 
-        // Gestion des transitions de page
-        function initPageTransitions() {
-            const pageChangeTransition = document.querySelector('.page-change-transition')
-            console.log('Page transition element:', pageChangeTransition)
-
-            // Fonction pour attendre que toutes les images soient chargées
-            function waitForImagesToLoad() {
-                return new Promise<void>((resolve) => {
-                    const images = document.querySelectorAll('img')
-                    const totalImages = images.length
-                    let loadedImages = 0
-
-                    console.log('Images à charger:', totalImages)
-
-                    if (totalImages === 0) {
-                        resolve()
-                        return
-                    }
-
-                    images.forEach((img) => {
-                        if (img.complete) {
-                            loadedImages++
-                            if (loadedImages === totalImages) {
-                                resolve()
-                            }
-                        } else {
-                            img.addEventListener('load', () => {
-                                loadedImages++
-                                if (loadedImages === totalImages) {
-                                    resolve()
-                                }
-                            })
-                            img.addEventListener('error', () => {
-                                loadedImages++
-                                if (loadedImages === totalImages) {
-                                    resolve()
-                                }
-                            })
-                        }
-                    })
-                })
-            }
-
-            // Transition lors du changement de page
-            const links = document.querySelectorAll('a[href^="/"]')
-            console.log('Liens internes trouvés:', links.length)
-
-            links.forEach(link => {
-                link.addEventListener('click', async (e) => {
-                    const href = (link as HTMLAnchorElement).getAttribute('href')
-                    console.log('Clic sur lien:', href, 'Page actuelle:', window.location.pathname)
-
-                    if (href && href !== window.location.pathname) {
-                        e.preventDefault()
-                        console.log('Transition déclenchée pour:', href)
-
-                        if (pageChangeTransition) {
-                            pageChangeTransition.classList.add('active')
-                            console.log('Classe active ajoutée')
-                        }
-
-                        // Attendre que toutes les images soient chargées
-                        await waitForImagesToLoad()
-                        console.log('Toutes les images sont chargées')
-
-                        setTimeout(() => {
-                            console.log('Navigation vers:', href)
-                            window.location.href = href
-                        }, 500)
-                    }
-                })
-            })
-        }
-
         // Initialisation
         initTheme()
         resetScroll()
-        initPageTransitions()
 
         // Event listeners
         const themeToggle = document.getElementById('theme-toggle')
