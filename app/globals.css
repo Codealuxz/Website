@@ -441,6 +441,12 @@ main {
     opacity: 1;
 }
 
+.contribute-btn {
+    background-color: var(--background-color-blur) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
 .stat-item:hover {
     transform: translateY(-5px);
     text-shadow: 0 0 20px rgba(244, 119, 150, 0.5);

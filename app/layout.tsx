@@ -18,6 +18,21 @@ export default function RootLayout({
     return (
         <html lang="fr">
             <head>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="robots" content="index, follow" />
+                <meta name="theme-color" content="#18181b" />
+                <link rel="canonical" href="https://openmc.fr/" />
+                <meta property="og:title" content="OpenMC - Serveur Minecraft open-source innovant et collaboratif" />
+                <meta property="og:description" content="OpenMC est un projet communautaire open-source dédié à la création d'un serveur Minecraft innovant et collaboratif." />
+                <meta property="og:image" content="https://openmc.fr/images/ui/logo.png" />
+                <meta property="og:url" content="https://openmc.fr/" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="OpenMC - Serveur Minecraft open-source innovant et collaboratif" />
+                <meta name="twitter:description" content="OpenMC est un projet communautaire open-source dédié à la création d'un serveur Minecraft innovant et collaboratif." />
+                <meta name="twitter:image" content="https://openmc.fr/images/ui/logo.png" />
+                <meta name="keywords" content="Minecraft, Aywen, serveur Minecraft, open-source, serveur multijoueur, communauté Minecraft, plugins Minecraft, serveur innovant, serveur collaboratif, France, OpenMC, serveur français, hébergement Minecraft, développement Minecraft, projet communautaire, serveur gratuit, serveur Minecraft français, serveur Minecraft open-source, serveur Minecraft multijoueur, serveur Minecraft communautaire, serveur Minecraft innovant, serveur Minecraft collaboratif, serveur Minecraft innovatif" />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -64,6 +79,29 @@ export default function RootLayout({
                         `
                     }}
                 />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                    __html: `{
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://openmc.fr/"},
+                    {"@type": "ListItem", "position": 2, "name": "Rejoindre", "item": "https://openmc.fr/join"},
+                    {"@type": "ListItem", "position": 3, "name": "Galerie", "item": "https://openmc.fr/screenshots"},
+                    {"@type": "ListItem", "position": 4, "name": "Changelog", "item": "https://openmc.fr/changelog"}
+                  ]
+                }`}} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{
+                    __html: `{
+                  "@context": "https://schema.org",
+                  "@type": "SiteNavigationElement",
+                  "name": ["Accueil", "Rejoindre", "Galerie", "Changelog"],
+                  "url": [
+                    "https://openmc.fr/",
+                    "https://openmc.fr/join",
+                    "https://openmc.fr/screenshots",
+                    "https://openmc.fr/changelog"
+                  ]
+                }`}} />
             </head>
             <body className={inter.className}>
                 <div className="theme-transition-overlay">
