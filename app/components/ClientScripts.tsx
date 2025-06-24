@@ -129,6 +129,7 @@ export default function ClientScripts() {
             const headerContainer = document.querySelector<HTMLElement>('.header-container')
 
             function handleBurgerClick(e: Event) {
+                alert('DEBUG: burger menu cliqué');
                 // Pour éviter le double déclenchement sur mobile
                 if (e.type === 'touchstart') {
                     e.preventDefault();
