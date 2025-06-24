@@ -25,13 +25,13 @@ export default function RootLayout({
                 <link rel="canonical" href="https://openmc.fr/" />
                 <meta property="og:title" content="OpenMC - Serveur Minecraft open-source innovant et collaboratif" />
                 <meta property="og:description" content="Serveur Minecraft open-source innovant et collaboratif pour la communauté. Et en constante évolution." />
-                <meta property="og:image" content="https://codealuxz.github.io/Website/images/ui/logo.png" />
+                <meta property="og:image" content="https://openmc.fr/images/ui/logo.png" />
                 <meta property="og:url" content="https://openmc.fr/" />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="OpenMC - Serveur Minecraft open-source innovant et collaboratif" />
                 <meta name="twitter:description" content="OpenMC est un projet communautaire open-source dédié à la création d'un serveur Minecraft innovant et collaboratif." />
-                <meta name="twitter:image" content="https://codealuxz.github.io/Website/images/ui/logo.png" />
+                <meta name="twitter:image" content="https://openmc.fr/images/ui/logo.png" />
                 <meta name="keywords" content="Minecraft, Aywen, serveur Minecraft, open-source, serveur multijoueur, communauté Minecraft, plugins Minecraft, serveur innovant, serveur collaboratif, France, OpenMC, serveur français, hébergement Minecraft, développement Minecraft, projet communautaire, serveur gratuit, serveur Minecraft français, serveur Minecraft open-source, serveur Minecraft multijoueur, serveur Minecraft communautaire, serveur Minecraft innovant, serveur Minecraft collaboratif, serveur Minecraft innovatif" />
                 <script
                     dangerouslySetInnerHTML={{
