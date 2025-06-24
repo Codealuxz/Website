@@ -445,6 +445,7 @@ main {
     background-color: var(--background-color-blur) !important;
     color: var(--text-color) !important;
     border: 1px solid var(--border-color) !important;
+    display: none;
 }
 
 .stat-item:hover {
@@ -1993,6 +1994,10 @@ body {
         display: flex;
     }
 
+    .contribute-btn {
+        display: initial;
+    }
+
     .burger-menu.open span:nth-child(1) {
         transform: rotate(45deg);
     }
@@ -2099,6 +2104,7 @@ body {
     .lstr {
         display: none;
     }
+
 
 }
 
