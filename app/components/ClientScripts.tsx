@@ -121,56 +121,6 @@ export default function ClientScripts() {
             }
         }
 
-        // Gestion du menu burger
-        document.addEventListener('DOMContentLoaded', function () {
-            const burger = document.querySelector<HTMLElement>('.burger-menu')
-            const nav = document.querySelector<HTMLElement>('.header-menu')
-            const cta = document.querySelector<HTMLElement>('.cta')
-            const headerContainer = document.querySelector<HTMLElement>('.header-container')
-
-            function handleBurgerClick(e: Event) {
-                alert('DEBUG: burger menu cliqué');
-                // Pour éviter le double déclenchement sur mobile
-                if (e.type === 'touchstart') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                if (burger && nav && cta && headerContainer) {
-                    burger.classList.toggle('open')
-                    nav.classList.toggle('open')
-
-                    if (nav.classList.contains('open')) {
-                        document.body.style.overflow = 'hidden'
-                        nav.appendChild(cta)
-                        cta.style.display = 'block'
-                    } else {
-                        document.body.style.overflow = ''
-                        headerContainer.appendChild(cta)
-                        cta.style.display = ''
-                    }
-                }
-            }
-
-            if (burger) {
-                burger.addEventListener('pointerdown', handleBurgerClick)
-                // Fermer le menu quand on clique/touche un lien
-                if (nav && cta && headerContainer) {
-                    const links = nav.querySelectorAll('a')
-                    links.forEach(link => {
-                        link.addEventListener('pointerdown', function (e: Event) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            burger.classList.remove('open')
-                            nav.classList.remove('open')
-                            document.body.style.overflow = ''
-                            headerContainer.appendChild(cta)
-                            cta.style.display = ''
-                        })
-                    })
-                }
-            }
-        })
-
         // Gestion du mouvement de la souris
         function handleMouseMove(e: MouseEvent) {
             const scrollX = window.pageXOffset || document.documentElement.scrollLeft

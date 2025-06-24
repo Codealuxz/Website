@@ -24,6 +24,7 @@ export default function HomePage() {
         y: 0,
         data: null
     })
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const showTooltip = (e: React.MouseEvent, contributor: Contributor) => {
         const rect = e.currentTarget.getBoundingClientRect()
@@ -135,7 +136,7 @@ export default function HomePage() {
                             <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </Link>
                     </div>
-                    <div className="header-menu">
+                    <div className={`header-menu${menuOpen ? ' open' : ''}`}>
                         <Link href="/" className="active">Accueil</Link>
                         <Link href="/screenshots">Galerie</Link>
                         <a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a>
@@ -143,7 +144,11 @@ export default function HomePage() {
                         <Link href="/changelog">Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
-                    <button className="burger-menu" aria-label="Ouvrir le menu">
+                    <button
+                        className={`burger-menu${menuOpen ? ' open' : ''}`}
+                        aria-label="Ouvrir le menu"
+                        onClick={() => { alert('DEBUG: burger menu cliqué'); setMenuOpen(!menuOpen); }}
+                    >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -158,6 +163,9 @@ export default function HomePage() {
                         </button>
                     </div>
                 </div>
+                {menuOpen && (
+                    <div className="fixed inset-0 bg-black/40 z-40 backdrop-blur-md transition-all duration-300 opacity-100" onClick={() => setMenuOpen(false)}></div>
+                )}
             </header>
 
             <main className="slide-in-from-top">
