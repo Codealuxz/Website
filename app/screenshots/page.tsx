@@ -15,6 +15,7 @@ interface Screenshot {
 export default function ScreenshotsPage() {
     const [screenshots, setScreenshots] = useState<Screenshot[]>([])
     const [selectedImage, setSelectedImage] = useState<string | null>(null)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         // Utiliser directement les données hardcodées
@@ -50,15 +51,19 @@ export default function ScreenshotsPage() {
                             <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </Link>
                     </div>
-                    <div className="header-menu">
-                        <Link href="/">Accueil</Link>
-                        <Link href="/screenshots" className="active">Galerie</Link>
+                    <div className={`header-menu${menuOpen ? ' open' : ''}`}>
+                        <Link href="/" onClick={() => setMenuOpen(false)}>Accueil</Link>
+                        <Link href="/screenshots" className="active" onClick={() => setMenuOpen(false)}>Galerie</Link>
                         <a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a>
                         <a href="https://discord.com/invite/H7DrUjHw7q" target="_blank" rel="noopener noreferrer">Discord</a>
-                        <Link href="/changelog">Changelog</Link>
+                        <Link href="/changelog" onClick={() => setMenuOpen(false)}>Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
-                    <button className="burger-menu" aria-label="Ouvrir le menu">
+                    <button
+                        className={`burger-menu${menuOpen ? ' open' : ''}`}
+                        aria-label="Ouvrir le menu"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -73,6 +78,9 @@ export default function ScreenshotsPage() {
                         </button>
                     </div>
                 </div>
+                {menuOpen && (
+                    <div className="fixed inset-0 bg-black/40 z-40 backdrop-blur-md transition-all duration-300 opacity-100" onClick={() => setMenuOpen(false)}></div>
+                )}
             </header>
 
             <main className="slide-in-from-top">

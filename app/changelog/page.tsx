@@ -32,6 +32,7 @@ export default function ChangelogPage() {
     const [releases, setReleases] = useState<any[]>([])
     const [loadingReleases, setLoadingReleases] = useState(false)
     const [errorReleases, setErrorReleases] = useState<string | null>(null)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         // Charger le changelog depuis l'API GitHub
@@ -95,15 +96,19 @@ export default function ChangelogPage() {
                             <img src="images/ui/logo.webp" alt="OpenMC Logo" />
                         </Link>
                     </div>
-                    <div className="header-menu">
-                        <Link href="/">Accueil</Link>
-                        <Link href="/screenshots">Galerie</Link>
+                    <div className={`header-menu${menuOpen ? ' open' : ''}`}>
+                        <Link href="/" onClick={() => setMenuOpen(false)}>Accueil</Link>
+                        <Link href="/screenshots" onClick={() => setMenuOpen(false)}>Galerie</Link>
                         <a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a>
                         <a href="https://discord.com/invite/H7DrUjHw7q" target="_blank" rel="noopener noreferrer">Discord</a>
-                        <Link href="/changelog" className="active">Changelog</Link>
+                        <Link href="/changelog" className="active" onClick={() => setMenuOpen(false)}>Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
-                    <button className="burger-menu" aria-label="Ouvrir le menu">
+                    <button
+                        className={`burger-menu${menuOpen ? ' open' : ''}`}
+                        aria-label="Ouvrir le menu"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
                         <span></span>
                         <span></span>
                         <span></span>
@@ -118,6 +123,9 @@ export default function ChangelogPage() {
                         </button>
                     </div>
                 </div>
+                {menuOpen && (
+                    <div className="fixed inset-0 bg-black/40 z-40 backdrop-blur-md transition-all duration-300 opacity-100" onClick={() => setMenuOpen(false)}></div>
+                )}
             </header>
 
             <main className="slide-in-from-top">

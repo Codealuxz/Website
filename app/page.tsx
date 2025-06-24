@@ -137,17 +137,17 @@ export default function HomePage() {
                         </Link>
                     </div>
                     <div className={`header-menu${menuOpen ? ' open' : ''}`}>
-                        <Link href="/" className="active">Accueil</Link>
-                        <Link href="/screenshots">Galerie</Link>
+                        <Link href="/" className="active" onClick={() => setMenuOpen(false)}>Accueil</Link>
+                        <Link href="/screenshots" onClick={() => setMenuOpen(false)}>Galerie</Link>
                         <a href="https://wiki.openmc.fr/" target="_blank" rel="noopener noreferrer">Wiki</a>
                         <a href="https://discord.gg/54z3FbfjEE" target="_blank" rel="noopener noreferrer">Discord</a>
-                        <Link href="/changelog">Changelog</Link>
+                        <Link href="/changelog" onClick={() => setMenuOpen(false)}>Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                     <button
                         className={`burger-menu${menuOpen ? ' open' : ''}`}
                         aria-label="Ouvrir le menu"
-                        onClick={() => { alert('DEBUG: burger menu cliqué'); setMenuOpen(!menuOpen); }}
+                        onClick={() => setMenuOpen(!menuOpen)}
                     >
                         <span></span>
                         <span></span>
