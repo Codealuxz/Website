@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import './globals.css'
 import ClientScripts from './components/ClientScripts'
+import '@fontsource/geist';
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'OpenMC',
@@ -103,7 +104,7 @@ export default function RootLayout({
                   ]
                 }`}} />
             </head>
-            <body className={inter.className}>
+            <body className="geist-font">
                 <div className="theme-transition-overlay">
                     <img src="images/ui/logo.webp" alt="OpenMC Logo" className="theme-transition-logo" />
                 </div>

@@ -50,4 +50,8 @@ yarn.lock
 *.swo
 
 # OS
-Thumbs.db 
+Thumbs.db
+
+# gitignore
+package-lock.json
+run.bat 
