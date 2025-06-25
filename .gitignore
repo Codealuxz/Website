@@ -52,6 +52,5 @@ yarn.lock
 # OS
 Thumbs.db
 
-# gitignore
-package-lock.json
+# tools
 run.bat 
