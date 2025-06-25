@@ -8,6 +8,7 @@
     --accent-color-active: #f38ea7;
     --accent-color-blur: #f477962b;
     --text-color: #fff;
+    --text-color-alt: #999;
     --border-color: #404040;
     --border-color-alt: #4e4e4e;
     --background-color-blur: #0A0A0A2b;
@@ -25,6 +26,7 @@
     --accent-color-active: #f38ea7;
     --accent-color-blur: #f477962b;
     --text-color: #1a1a1a;
+    --text-color-alt: #666;
     --border-color: #e0e0e0;
     --border-color-alt: #d0d0d0;
     --background-color-blur: rgba(183, 183, 183, 0.8);
@@ -162,7 +164,7 @@ header.scrolled {
 
 .header-menu {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .header-menu a {
@@ -170,9 +172,9 @@ header.scrolled {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 10px;
+    border-radius: 30px;
     transition: all 0.3s ease;
-    padding: 5px;
+    padding: 10px;
     border: 1px solid transparent;
 }
 
