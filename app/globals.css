@@ -280,6 +280,12 @@ main {
     text-align: center;
 }
 
+.main-description{
+    color: var(--text-color-alt);
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
 .title-line {
     display: inline-block;
     transition: all 0.5s ease;
@@ -442,8 +448,8 @@ main {
 }
 
 .contribute-btn {
-    background-color: var(--background-color-blur) !important;
-    color: var(--text-color) !important;
+    background-color: var(--text-color) !important;
+    color: var(--background-color) !important;
     border: 1px solid var(--border-color) !important;
 }
 
