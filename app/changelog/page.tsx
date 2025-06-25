@@ -103,7 +103,7 @@ export default function ChangelogPage() {
                         <a href="https://discord.com/invite/H7DrUjHw7q" target="_blank" rel="noopener noreferrer">Discord</a>
                         <Link href="/changelog" className="active" onClick={() => setMenuOpen(false)}>Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <button className="cta-button mt-4 w-full" onClick={() => { setMenuOpen(false); window.location.href = 'join'; }}>
+                        <button className="cta-button burger-menu-btn mt-4 w-full" onClick={() => { setMenuOpen(false); window.location.href = 'join'; }}>
                             Rejoindre le serveur
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14"></path>
