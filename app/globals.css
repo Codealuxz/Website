@@ -122,7 +122,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90px;
+    height: 70px;
     position: fixed;
     top: 0;
     left: 0;
@@ -143,8 +143,8 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 0 0 10px 10px;
-    padding: 30px;
+    border-radius: 0;
+    padding: 25px;
     background-color: var(--accent-color-blur);
     backdrop-filter: blur(30px);
     transition: all 0.3s ease;
@@ -199,8 +199,8 @@ header.scrolled {
     border: none;
     cursor: pointer;
     padding: 0;
-    scale: 0.8;
     z-index: 1001;
+    transform: scale(0.8);
 }
 
 .burger-menu span {
@@ -1475,7 +1475,7 @@ body {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    border: 1px solid var(--border-color);
+    border: 0px solid var(--border-color);
     position: relative;
     grid-row: span 1;
     grid-column: span 1;
@@ -1946,6 +1946,10 @@ body {
 
     .header.scrolled {
         padding: 10px 0;
+    }
+
+    header {
+        height: 60px;
     }
 
     .header-container {
