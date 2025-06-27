@@ -179,22 +179,26 @@ export default function ChangelogPage() {
                                     <p style={{ clear: 'both' }}>Derniers commits du dépôt principal</p>
                                     <div className="changelog-entries">
                                         <div className="changelog-timeline">
-                                            {entry.commits.map((commit) => (
-                                                <div key={commit.sha} className="changelog-timeline-entry">
-                                                    <div className="changelog-timeline-dot"></div>
-                                                    <div className="changelog-timeline-content">
-                                                        <div className="changelog-timeline-title">
-                                                            {getCommitType(commit.commit.message)}
-                                                            <span className="changelog-timeline-date">
-                                                                {formatDate(commit.commit.author.date)}
-                                                            </span>
-                                                        </div>
-                                                        <div className="changelog-timeline-body">
-                                                            {commit.commit.message.split('\n')[0]}
+                                            {Array.isArray(entry.commits) ? (
+                                                entry.commits.map((commit) => (
+                                                    <div key={commit.sha} className="changelog-timeline-entry">
+                                                        <div className="changelog-timeline-dot"></div>
+                                                        <div className="changelog-timeline-content">
+                                                            <div className="changelog-timeline-title">
+                                                                {getCommitType(commit.commit.message)}
+                                                                <span className="changelog-timeline-date">
+                                                                    {formatDate(commit.commit.author.date)}
+                                                                </span>
+                                                            </div>
+                                                            <div className="changelog-timeline-body">
+                                                                {commit.commit.message.split('\n')[0]}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            ))}
+                                                ))
+                                            ) : (
+                                                <div style={{ color: 'red' }}>Deso mais t'es rate limite par Github</div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -244,8 +248,8 @@ export default function ChangelogPage() {
                                     background: 'none',
                                     border: '2px solid transparent',
                                     borderRadius: 10,
-                                    width: 30,
-                                    height: 30,
+                                    width: 36,
+                                    height: 36,
                                     fontSize: 20,
                                     color: 'var(--text-color-secondary)',
                                     cursor: 'pointer',
@@ -253,28 +257,34 @@ export default function ChangelogPage() {
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     transition: 'all 0.2s ease',
+                                    padding: 0,
                                 }}
                                 onMouseEnter={(e) => {
                                     e.currentTarget.style.borderColor = 'var(--accent-color)';
                                     e.currentTarget.style.color = 'var(--accent-color)';
+                                    e.currentTarget.style.background = 'rgba(244,119,150,0.08)';
                                 }}
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.borderColor = 'transparent';
                                     e.currentTarget.style.color = 'var(--text-color-secondary)';
+                                    e.currentTarget.style.background = 'none';
                                 }}
                                 aria-label="Fermer la fenêtre des releases"
                             >
-                                ×
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="6" y1="6" x2="16" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                    <line x1="16" y1="6" x2="6" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                </svg>
                             </button>
                             <h2 style={{ marginBottom: 18, fontSize: '1.25rem', color: 'var(--accent-color)' }}>Releases du projet</h2>
                             {loadingReleases ? (
-                                <p>Chargement des releases...</p>
+                                <p>Deso mais t'es rate limite par Github</p>
                             ) : errorReleases ? (
                                 <p style={{ color: 'red' }}>{errorReleases}</p>
                             ) : releases.length === 0 ? (
-                                <p>Aucune release trouvée pour ce dépôt.</p>
+                                <p>Deso mais t'es rate limite par Github.</p>
                             ) : (
-                                releases.map((rel) => (
+                                releases.map((rel, idx) => (
                                     <div key={rel.id} style={{ marginBottom: 32 }}>
                                         <div style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--accent-color)', marginBottom: 2 }}>
                                             {rel.name || rel.tag_name}{' '}
@@ -283,13 +293,17 @@ export default function ChangelogPage() {
                                             </span>
                                         </div>
                                         <div style={{ marginBottom: 8 }}>
-                                            <a href={rel.html_url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'underline dotted' }}>
+                                            <a href={rel.html_url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'underline dotted', transition: 'color 0.18s, transform 0.18s', display: 'inline-block' }}
+                                                onMouseEnter={e => { e.currentTarget.style.color = '#f38ea7'; e.currentTarget.style.transform = 'scale(1.07) translateX(4px)'; }}
+                                                onMouseLeave={e => { e.currentTarget.style.color = 'var(--accent-color)'; e.currentTarget.style.transform = 'none'; }}
+                                            >
                                                 Voir sur GitHub
                                             </a>
                                         </div>
                                         <div style={{ color: 'var(--text-color-secondary)', fontSize: '1rem' }}>
-                                            {rel.body ? <ReactMarkdown>{rel.body}</ReactMarkdown> : <em>Aucun changelog.</em>}
+                                            {rel.body ? <ReactMarkdown>{rel.body}</ReactMarkdown> : <em>Deso mais t'es rate limite par Github</em>}
                                         </div>
+                                        {idx < releases.length - 1 && <hr style={{ margin: '28px 0', border: 'none', borderTop: '1.5px solid var(--border-color-alt)' }} />}
                                     </div>
                                 ))
                             )}

@@ -69,7 +69,7 @@ export default function Navbar() {
                 <div className="hidden md:flex">
                     <Button className="group" asChild>
                         <Link href="/join">
-                            Rejoindre le Serveur
+                            Rejoindre<span className="ls-btn"> le serveur</span>
                             <ArrowRightIcon
                                 className="-me-1 opacity-60 transition-transform group-hover:translate-x-0.5"
                                 size={16}
@@ -124,7 +124,7 @@ export default function Navbar() {
                                 asChild
                             >
                                 <Link href="/join">
-                                    Rejoindre le Serveur
+                                    Rejoindre<span className="ls-btn"> le serveur</span>
                                     <ArrowRightIcon
                                         className="-me-1 ml-2 opacity-60 transition-transform group-active:translate-x-1"
                                         size={18}

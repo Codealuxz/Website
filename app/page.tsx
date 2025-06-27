@@ -25,6 +25,7 @@ export default function HomePage() {
         data: null
     })
     const [menuOpen, setMenuOpen] = useState(false)
+    const [contributorsTimeout, setContributorsTimeout] = useState(false)
 
     const showTooltip = (e: React.MouseEvent, contributor: Contributor) => {
         const rect = e.currentTarget.getBoundingClientRect()
@@ -99,7 +100,11 @@ export default function HomePage() {
 
                 console.log('Contributeurs finaux avec stats:', sortedContributors)
                 setContributors(sortedContributors)
-                setStatContributors(sortedContributors.length.toString())
+                setStatContributors(
+                    Array.isArray(sortedContributors)
+                        ? sortedContributors.length.toString()
+                        : '0'
+                )
             } catch (error) {
                 console.error('Erreur lors du chargement des contributeurs:', error)
                 // Fallback: charger juste les contributeurs sans stats
@@ -107,7 +112,11 @@ export default function HomePage() {
                     const response = await fetch('https://api.github.com/repos/ServerOpenMC/PluginV2/contributors?per_page=100')
                     const contributors: Contributor[] = await response.json()
                     setContributors(contributors)
-                    setStatContributors(contributors.length.toString())
+                    setStatContributors(
+                        Array.isArray(contributors)
+                            ? contributors.length.toString()
+                            : '0'
+                    )
                 } catch (fallbackError) {
                     console.error('Erreur fallback:', fallbackError)
                 }
@@ -126,6 +135,11 @@ export default function HomePage() {
                 console.error('Erreur lors du chargement des stats')
             })
     }, [])
+
+    useEffect(() => {
+        const timeout = setTimeout(() => setContributorsTimeout(true), 3000);
+        return () => clearTimeout(timeout);
+    }, []);
 
     useEffect(() => {
         if (menuOpen) {
@@ -154,7 +168,7 @@ export default function HomePage() {
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
                         <Link href="/join" passHref>
                             <button className="cta-button burger-menu-btn mt-4 w-full">
-                                Rejoindre le serveur
+                                Rejoindre<span className="ls-btn"> le serveur</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -174,7 +188,7 @@ export default function HomePage() {
                     <div className="cta">
                         <Link href="/join" passHref>
                             <button className="cta-button">
-                                Rejoindre le serveur
+                                Rejoindre<span className="ls-btn"> le serveur</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -246,33 +260,29 @@ export default function HomePage() {
 
                 <section className="contributors-section">
                     <h2>Contributeurs OpenMC</h2>
-                    <div className="contributors-list" id="contributors-list">
-                        {contributors.length > 0 ? (
-                            contributors.map((contributor) => (
+                    {(!Array.isArray(contributors) || contributors.length === 0) && contributorsTimeout ? (
+                        <div style={{ color: 'red', margin: '20px 0', fontWeight: 600 }}>
+                            Deso mais t'es rate limite par Github
+                        </div>
+                    ) : (!Array.isArray(contributors) || contributors.length === 0) ? (
+                        <div style={{ color: 'var(--text-color-secondary)', margin: '20px 0' }}>
+                            Chargement des contributeurs...
+                        </div>
+                    ) : (
+                        <div className="contributors-list" id="contributors-list">
+                            {contributors.map((contributor) => (
                                 <div key={contributor.login} className="contributor">
                                     <a href={contributor.html_url} target="_blank" rel="noopener noreferrer" className="contributor-link">
                                         <Image src={contributor.avatar_url} alt={contributor.login} width={64} height={64} className="contributor-avatar" />
-                                        <span className="contributor-name">{contributor.login}</span>
+                                        <div className="contributor-name">{contributor.login}</div>
+                                        <div className="contributor-info">
+                                            +{contributor.additions ?? 0} / -{contributor.deletions ?? 0} / {contributor.commits ?? contributor.contributions} commits
+                                        </div>
                                     </a>
-                                    <div
-                                        className="contributor-info"
-                                        onMouseEnter={(e) => {
-                                            showTooltip(e, contributor)
-                                        }}
-                                        onMouseLeave={hideTooltip}
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <circle cx="12" cy="12" r="10"></circle>
-                                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                            <path d="M12 17h.01"></path>
-                                        </svg>
-                                    </div>
                                 </div>
-                            ))
-                        ) : (
-                            <p>Chargement des contributeurs...</p>
-                        )}
-                    </div>
+                            ))}
+                        </div>
+                    )}
 
                     {/* Tooltip global */}
                     {tooltipData.show && tooltipData.data && (

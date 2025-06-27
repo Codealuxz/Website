@@ -111,6 +111,8 @@ export default function ClientScripts() {
                     let marginTop
                     if (window.innerWidth <= 768) {
                         marginTop = -50 + (scrollPercent * 40)
+                    } else if (window.innerWidth <= 1100) {
+                        marginTop = -100
                     } else {
                         marginTop = -130 + (scrollPercent * 130)
                     }

@@ -87,7 +87,7 @@ export default function ScreenshotsPage() {
                     <div className="cta">
                         <Link href="/join" passHref>
                             <button className="cta-button">
-                                Rejoindre le serveur
+                                Rejoindre<span className="ls-btn"> le serveur</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M5 12h14"></path>
                                     <path d="m12 5 7 7-7 7"></path>
@@ -128,16 +128,16 @@ export default function ScreenshotsPage() {
 
             {selectedImage && (
                 <div id="lightbox-overlay" className="lightbox-overlay" onClick={closeLightbox}>
-                    <span className="lightbox-close" onClick={closeLightbox}>&times;</span>
-                    <Image
-                        className="lightbox-content"
-                        src={selectedImage}
-                        alt="Screenshot"
-                        width={1200}
-                        height={800}
-                        style={{ objectFit: 'contain' }}
-                        onClick={(e) => e.stopPropagation()}
-                    />
+                    <span className="lightbox-close" style={{ position: 'fixed', top: 30, right: 40, zIndex: 100001 }} onClick={closeLightbox}>&times;</span>
+                    <div className="lightbox-content" onClick={e => e.stopPropagation()} style={{ position: 'relative' }}>
+                        <Image
+                            src={selectedImage}
+                            alt="Screenshot"
+                            width={1200}
+                            height={800}
+                            style={{ objectFit: 'contain' }}
+                        />
+                    </div>
                 </div>
             )}
 
