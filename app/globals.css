@@ -315,7 +315,7 @@ main {
     display: block;
     width: 50px;
     height: 50px;
-    background-image: url(/images/ui/pop.png);
+    background-image: url(/images/ui/pop.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1550,7 +1550,7 @@ body {
     align-items: center;
     text-decoration: none;
     color: var(--text-color-secondary);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, color 0.3s;
     border-radius: 12px;
     padding: 8px 12px;
     position: relative;
@@ -1589,30 +1589,27 @@ body {
 }
 
 .contributor-info {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: var(--background-color-blur, #232323cc);
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 20;
-    transition: background 0.18s;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: static;
+    top: auto;
+    right: auto;
+    background: none;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    display: block;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: default;
+    z-index: 1;
+    transition: none;
+    box-shadow: none;
     outline: none;
-    transition: all 0.18s;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.contributor:hover .contributor-info {
     opacity: 1;
-    transform: scale(1);
-    background-color: var(--accent-color);
+    transform: none;
+    color: var(--text-color-secondary);
+    font-size: 13px;
+    margin-top: 4px;
+    padding: 0;
 }
 
 .contributor-info svg {
