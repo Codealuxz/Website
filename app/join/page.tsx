@@ -56,6 +56,15 @@ export default function JoinPage() {
         return () => clearInterval(interval)
     }, [])
 
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [menuOpen]);
+
     const copyIP = () => {
         navigator.clipboard.writeText('beta.openmc.fr')
         // Optionnel: afficher une notification de succès
@@ -119,13 +128,15 @@ export default function JoinPage() {
                         <a href="https://discord.com/invite/H7DrUjHw7q" target="_blank" rel="noopener noreferrer">Discord</a>
                         <Link href="/changelog" onClick={() => setMenuOpen(false)}>Changelog</Link>
                         <a href="https://github.com/ServerOpenMC" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <button className="cta-button burger-menu-btn mt-4 w-full" onClick={() => { setMenuOpen(false); window.location.href = 'join'; }}>
-                            Rejoindre le serveur
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>
-                        </button>
+                        <Link href="/join" passHref>
+                            <button className="cta-button burger-menu-btn mt-4 w-full" onClick={() => setMenuOpen(false)}>
+                                Rejoindre le serveur
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </Link>
                     </div>
                     <button
                         className={`burger-menu${menuOpen ? ' open' : ''}`}
@@ -137,13 +148,15 @@ export default function JoinPage() {
                         <span></span>
                     </button>
                     <div className="cta">
-                        <button className="cta-button" onClick={() => window.location.href = 'join'}>
-                            Rejoindre le serveur
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14"></path>
-                                <path d="m12 5 7 7-7 7"></path>
-                            </svg>
-                        </button>
+                        <Link href="/join" passHref>
+                            <button className="cta-button">
+                                Rejoindre le serveur
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 {menuOpen && (
@@ -274,12 +287,14 @@ export default function JoinPage() {
                                 </svg>
                                 Rejoindre Discord
                             </a>
-                            <button className="back-btn" onClick={() => window.location.href = '/'}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="m15 18-6-6 6-6" />
-                                </svg>
-                                Retour à l'accueil
-                            </button>
+                            <Link href="/">
+                                <button className="back-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="m15 18-6-6 6-6" />
+                                    </svg>
+                                    Retour à l'accueil
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
