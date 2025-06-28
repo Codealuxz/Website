@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --background-color: #0A0A0A;
+    --background-color: #160f13;
     --background-color-alt: #1a1a1a;
     --accent-color: #f47796;
     --accent-color-hover: #DF6D89;
@@ -1569,7 +1569,7 @@ body {
 .contributor:hover {
     transform: translateY(-6px) scale(1.08);
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
-    background: var(--background-color-secondary, #232323);
+    background: var(--background-color-blur);
     color: var(--accent-color);
 }
 
@@ -1621,16 +1621,6 @@ body {
 }
 
 .contributor:hover svg {
-    color: #fff;
-}
-
-.contributor-info:hover,
-.contributor-info:focus {
-    background: var(--accent-color, #4fc3f7);
-}
-
-.contributor-info:hover svg,
-.contributor-info:focus svg {
     color: #fff;
 }
 
