@@ -1257,16 +1257,6 @@ body {
     margin-right: auto;
 }
 
-#map-viewer {
-    height: 600px;
-    width: 100%;
-    border-radius: 16px;
-    border: 2px solid var(--border-color);
-    background-color: var(--background-color-secondary);
-    z-index: 1;
-
-}
-
 
 .leaflet-container {
     border-radius: 16px;
@@ -1291,7 +1281,8 @@ body {
     justify-content: center;
     gap: 30px;
     padding: 30px;
-    background: radial-gradient(circle, var(--background-color-alt) 0%, var(--background-color-alt) 100%);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     border: 1px solid var(--border-color);
     min-height: 140px;
