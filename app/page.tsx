@@ -233,7 +233,7 @@ export default function HomePage() {
                     </div>
                     <div className="main-image">
                         <div className="image-wrapper">
-                            <Image src="/images/ui/spawn.webp" alt="Spawn du serveur OpenMC" width={1200} height={800} />
+                            <Image src="images/ui/spawn.webp" alt="Spawn du serveur OpenMC" width={1200} height={800} />
                             <div className="main-image-overlay">
                                 <div className="stats">
                                     <div className="stat-item">
